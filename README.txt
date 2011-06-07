@@ -1,4 +1,4 @@
-Core/Auras: Add functions for common actions on aura charges. 
+Merge branch 'master' of https://github.com/TrinityCore/TrinityCore 
 QAston (author)
 07.06.2011
 
