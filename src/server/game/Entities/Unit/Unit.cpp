@@ -9277,9 +9277,10 @@ bool Unit::IsHostileTo(Unit const* unit) const
 bool Unit::IsFriendlyTo(Unit const* unit) const
 {
 
-// not friendly for null unit
-if (!unit)
-return false;
+    // not friendly for null unit
+    if (!unit)
+        return false;
+
     // always friendly to self
     if (unit == this)
         return true;
