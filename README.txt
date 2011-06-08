@@ -5,3 +5,4 @@ QAston (author)
 [PATCH] Anticheat by manuel
 [PATCH] OutdoorPvP_WinterGrasp
 [PATCH] RubySanctum
+[PATCH] ban_kick_mute_announce
