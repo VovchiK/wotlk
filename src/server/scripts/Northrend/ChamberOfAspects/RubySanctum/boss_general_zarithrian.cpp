@@ -1,19 +1,19 @@
 /*
- * Copyright (C) 2008-2011 TrinityCore <http://www.trinitycore.org/>
- *
- * This program is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License as published by the
- * Free Software Foundation; either version 2 of the License, or (at your
- * option) any later version.
- *
- * This program is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
- * more details.
- *
- * You should have received a copy of the GNU General Public License along
- * with this program. If not, see <http://www.gnu.org/licenses/>.
- */
+* Copyright (C) 2008-2011 TrinityCore <http://www.trinitycore.org/>
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; either version 2 of the License, or (at your
+* option) any later version.
+*
+* This program is distributed in the hope that it will be useful, but WITHOUT
+* ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+* FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+* more details.
+*
+* You should have received a copy of the GNU General Public License along
+* with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
 
 #include "ScriptPCH.h"
 #include "ScriptedEscortAI.h"
@@ -21,33 +21,33 @@
 
 enum Texts
 {
-    SAY_AGGRO                   = 0,    // Alexstrasza has chosen capable allies.... A pity that I must END YOU!
-    SAY_KILL                    = 1,    // You thought you stood a chance? - It's for the best.
-    SAY_ADDS                    = 2,    // Turn them to ash, minions!
-    SAY_DEATH                   = 3,    // HALION! I...
+    SAY_AGGRO = 0, // Alexstrasza has chosen capable allies.... A pity that I must END YOU!
+    SAY_KILL = 1, // You thought you stood a chance? - It's for the best.
+    SAY_ADDS = 2, // Turn them to ash, minions!
+    SAY_DEATH = 3, // HALION! I...
 };
 
 enum Spells
 {
     // General Zarithrian
-    SPELL_INTIMIDATING_ROAR     = 74384,
-    SPELL_CLEAVE_ARMOR          = 74367,
+    SPELL_INTIMIDATING_ROAR = 74384,
+    SPELL_CLEAVE_ARMOR = 74367,
     // Zarithrian Spawn Stalker
-    SPELL_SUMMON_FLAMECALLER    = 74398,
+    SPELL_SUMMON_FLAMECALLER = 74398,
     // Onyx Flamecaller
-    SPELL_BLAST_NOVA            = 74392,
-    SPELL_LAVA_GOUT             = 74394,
+    SPELL_BLAST_NOVA = 74392,
+    SPELL_LAVA_GOUT = 74394,
 };
 
 enum Events
 {
     // General Zarithrian
-    EVENT_CLEAVE                    = 1,
-    EVENT_INTIDMDATING_ROAR         = 2,
-    EVENT_SUMMON_ADDS               = 3,
+    EVENT_CLEAVE = 1,
+    EVENT_INTIDMDATING_ROAR = 2,
+    EVENT_SUMMON_ADDS = 3,
     // Onyx Flamecaller
-    EVENT_BLAST_NOVA                = 4,
-    EVENT_LAVA_GOUT                 = 5,
+    EVENT_BLAST_NOVA = 4,
+    EVENT_LAVA_GOUT = 5,
 };
 
 uint32 const MAX_PATH_FLAMECALLER_WAYPOINTS = 12;
