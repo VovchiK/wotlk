@@ -4,3 +4,4 @@ QAston (author)
 
 [PATCH] Anticheat by manuel
 [PATCH] OutdoorPvP_WinterGrasp
+[PATCH] RubySanctum
