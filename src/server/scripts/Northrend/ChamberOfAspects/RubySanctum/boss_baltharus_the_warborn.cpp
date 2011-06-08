@@ -1,19 +1,19 @@
 /*
- * Copyright (C) 2008-2011 TrinityCore <http://www.trinitycore.org/>
- *
- * This program is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License as published by the
- * Free Software Foundation; either version 2 of the License, or (at your
- * option) any later version.
- *
- * This program is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
- * more details.
- *
- * You should have received a copy of the GNU General Public License along
- * with this program. If not, see <http://www.gnu.org/licenses/>.
- */
+* Copyright (C) 2008-2011 TrinityCore <http://www.trinitycore.org/>
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; either version 2 of the License, or (at your
+* option) any later version.
+*
+* This program is distributed in the hope that it will be useful, but WITHOUT
+* ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+* FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+* more details.
+*
+* You should have received a copy of the GNU General Public License along
+* with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
 
 #include "ObjectMgr.h"
 #include "ScriptMgr.h"
@@ -23,47 +23,47 @@
 
 enum Texts
 {
-    SAY_BALTHARUS_INTRO         = 0,    // Your power wanes, ancient one.... Soon you will join your friends.
-    SAY_AGGRO                   = 1,    // Ah, the entertainment has arrived.
-    SAY_KILL                    = 2,    // Baltharus leaves no survivors! - This world has enough heroes.
-    SAY_CLONE                   = 3,    // Twice the pain and half the fun.
-    SAY_DEATH                   = 4,    // I... didn't see that coming....
+    SAY_BALTHARUS_INTRO = 0, // Your power wanes, ancient one.... Soon you will join your friends.
+    SAY_AGGRO = 1, // Ah, the entertainment has arrived.
+    SAY_KILL = 2, // Baltharus leaves no survivors! - This world has enough heroes.
+    SAY_CLONE = 3, // Twice the pain and half the fun.
+    SAY_DEATH = 4, // I... didn't see that coming....
 };
 
 enum Spells
 {
-    SPELL_BARRIER_CHANNEL       = 76221,
-    SPELL_ENERVATING_BRAND      = 74502,
-    SPELL_SIPHONED_MIGHT        = 74507,
-    SPELL_CLEAVE                = 40504,
-    SPELL_BLADE_TEMPEST         = 75125,
-    SPELL_CLONE                 = 74511,
-    SPELL_REPELLING_WAVE        = 74509,
-    SPELL_CLEAR_DEBUFFS         = 34098,
-    SPELL_SPAWN_EFFECT          = 64195,
+    SPELL_BARRIER_CHANNEL = 76221,
+    SPELL_ENERVATING_BRAND = 74502,
+    SPELL_SIPHONED_MIGHT = 74507,
+    SPELL_CLEAVE = 40504,
+    SPELL_BLADE_TEMPEST = 75125,
+    SPELL_CLONE = 74511,
+    SPELL_REPELLING_WAVE = 74509,
+    SPELL_CLEAR_DEBUFFS = 34098,
+    SPELL_SPAWN_EFFECT = 64195,
 };
 
 enum Events
 {
-    EVENT_BLADE_TEMPEST         = 1,
-    EVENT_CLEAVE                = 2,
-    EVENT_ENERVATING_BRAND      = 3,
-    EVENT_INTRO_TALK            = 4,
-    EVENT_OOC_CHANNEL           = 5,
+    EVENT_BLADE_TEMPEST = 1,
+    EVENT_CLEAVE = 2,
+    EVENT_ENERVATING_BRAND = 3,
+    EVENT_INTRO_TALK = 4,
+    EVENT_OOC_CHANNEL = 5,
 };
 
 enum Actions
 {
-    ACTION_CLONE                = 1,
+    ACTION_CLONE = 1,
 };
 
 enum Phases
 {
-    PHASE_ALL       = 0,
-    PHASE_INTRO     = 1,
-    PHASE_COMBAT    = 2,
+    PHASE_ALL = 0,
+    PHASE_INTRO = 1,
+    PHASE_COMBAT = 2,
 
-    PHASE_INTRO_MASK    = 1 << PHASE_INTRO,
+    PHASE_INTRO_MASK = 1 << PHASE_INTRO,
 };
 
 class boss_baltharus_the_warborn : public CreatureScript
@@ -190,7 +190,7 @@ class boss_baltharus_the_warborn : public CreatureScript
                             break;
                         case EVENT_CLEAVE:
                             DoCastVictim(SPELL_CLEAVE);
-                            events.ScheduleEvent(EVENT_CLEAVE, 24000, 0, PHASE_COMBAT); 
+                            events.ScheduleEvent(EVENT_CLEAVE, 24000, 0, PHASE_COMBAT);
                             break;
                         case EVENT_BLADE_TEMPEST:
                             DoCast(me, SPELL_BLADE_TEMPEST);
@@ -388,3 +388,4 @@ void AddSC_boss_baltharus_the_warborn()
     new spell_baltharus_enervating_brand();
     new spell_baltharus_enervating_brand_trigger();
 }
+
