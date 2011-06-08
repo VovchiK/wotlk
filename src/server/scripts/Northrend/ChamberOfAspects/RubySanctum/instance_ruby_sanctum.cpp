@@ -1,19 +1,19 @@
 /*
- * Copyright (C) 2008-2011 TrinityCore <http://www.trinitycore.org/>
- *
- * This program is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License as published by the
- * Free Software Foundation; either version 2 of the License, or (at your
- * option) any later version.
- *
- * This program is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
- * more details.
- *
- * You should have received a copy of the GNU General Public License along
- * with this program. If not, see <http://www.gnu.org/licenses/>.
- */
+* Copyright (C) 2008-2011 TrinityCore <http://www.trinitycore.org/>
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; either version 2 of the License, or (at your
+* option) any later version.
+*
+* This program is distributed in the hope that it will be useful, but WITHOUT
+* ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+* FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+* more details.
+*
+* You should have received a copy of the GNU General Public License along
+* with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
 
 #include "ScriptPCH.h"
 #include "ruby_sanctum.h"
@@ -21,8 +21,8 @@
 
 DoorData const doorData[] =
 {
-    {GO_FIRE_FIELD,     DATA_BALTHARUS_THE_WARBORN, DOOR_TYPE_PASSAGE,  BOUNDARY_E   },
-    {0,                 0,                          DOOR_TYPE_ROOM,     BOUNDARY_NONE},
+    {GO_FIRE_FIELD, DATA_BALTHARUS_THE_WARBORN, DOOR_TYPE_PASSAGE, BOUNDARY_E },
+    {0, 0, DOOR_TYPE_ROOM, BOUNDARY_NONE},
 };
 
 class instance_ruby_sanctum : public InstanceMapScript
@@ -37,15 +37,15 @@ class instance_ruby_sanctum : public InstanceMapScript
                 SetBossNumber(EncounterCount);
                 LoadDoorData(doorData);
                 BaltharusTheWarbornGUID = 0;
-                GeneralZarithrianGUID   = 0;
-                SavianaRagefireGUID     = 0;
-                HalionGUID              = 0;
-                HalionControllerGUID    = 0;
+                GeneralZarithrianGUID = 0;
+                SavianaRagefireGUID = 0;
+                HalionGUID = 0;
+                HalionControllerGUID = 0;
                 CrystalChannelTargetGUID = 0;
-                XerestraszaGUID         = 0;
-                BaltharusSharedHealth   = 0;
-                FlameWallsGUID          = 0;
-                FlameRingGUID           = 0;
+                XerestraszaGUID = 0;
+                BaltharusSharedHealth = 0;
+                FlameWallsGUID = 0;
+                FlameRingGUID = 0;
                 memset(ZarithianSpawnStalkerGUID, 0, 2*sizeof(uint64));
                 memset(BurningTreeGUID, 0, 4*sizeof(uint64));
             }
@@ -190,6 +190,7 @@ class instance_ruby_sanctum : public InstanceMapScript
                             HandleGameObject(FlameWallsGUID, true);
                             if (Creature* zarithrian = instance->GetCreature(GeneralZarithrianGUID))
                                 zarithrian->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_OOC_NOT_ATTACKABLE | UNIT_FLAG_NOT_SELECTABLE);
+                            SaveToDB();
                         }
                         break;
                     }
@@ -200,6 +201,7 @@ class instance_ruby_sanctum : public InstanceMapScript
                             HandleGameObject(FlameWallsGUID, true);
                             if (Creature* zarithrian = instance->GetCreature(GeneralZarithrianGUID))
                                 zarithrian->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_OOC_NOT_ATTACKABLE | UNIT_FLAG_NOT_SELECTABLE);
+                            SaveToDB();
                         }
                         break;
                     }
@@ -209,6 +211,10 @@ class instance_ruby_sanctum : public InstanceMapScript
                         if (state == DONE)
                             if (Creature* halionController = instance->SummonCreature(NPC_HALION_CONTROLLER, HalionControllerSpawnPos))
                                 halionController->AI()->DoAction(ACTION_INTRO_HALION);
+                        break;
+                    case DATA_HALION:
+                        if (state != IN_PROGRESS)
+                            HandleGameObject(FlameRingGUID, true);
                         break;
                     default:
                         break;
