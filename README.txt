@@ -6,3 +6,5 @@ QAston (author)
 [PATCH] OutdoorPvP_WinterGrasp
 [PATCH] RubySanctum
 [PATCH] ban_kick_mute_announce
+[fix] hall of reflection
+[fix] Trial of Champion
