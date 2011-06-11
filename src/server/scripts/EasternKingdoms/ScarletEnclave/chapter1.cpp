@@ -633,8 +633,6 @@ public:
                 {
                     if (Unit *charmer = caster->GetCharmer())
                     {
-                        if (charmer->HasAura(EFFECT_STOLEN_HORSE))
-                        {
                             charmer->RemoveAurasDueToSpell(EFFECT_STOLEN_HORSE);
                             caster->RemoveFlag(UNIT_NPC_FLAGS, UNIT_NPC_FLAG_SPELLCLICK);
                             caster->setFaction(35);
