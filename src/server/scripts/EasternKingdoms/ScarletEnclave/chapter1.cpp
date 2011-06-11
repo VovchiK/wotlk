@@ -639,7 +639,6 @@ public:
                             DoCast(caster, CALL_DARK_RIDER, true);
                             if (Creature* Dark_Rider = me->FindNearestCreature(28654, 15))
                                 CAST_AI(npc_dark_rider_of_acherus::npc_dark_rider_of_acherusAI, Dark_Rider->AI())->InitDespawnHorse(caster);
-                        }
                     }
                 }
             }
