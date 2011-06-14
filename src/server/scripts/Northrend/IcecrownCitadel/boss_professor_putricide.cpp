@@ -240,6 +240,7 @@ class boss_professor_putricide : public CreatureScript
 
             void JustDied(Unit* /*killer*/)
             {
+                summons.DespawnAll();
                 _JustDied();
                 Talk(SAY_DEATH);
             }
