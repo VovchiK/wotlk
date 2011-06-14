@@ -304,7 +304,9 @@ class boss_valithria_dreamwalker : public CreatureScript
 
             void Reset()
             {
-                me->SetHealth(_spawnHealth);
+                _events.Reset();
+                //me->SetHealth(_spawnHealth);
+                me->SetHealth(me->GetMaxHealth() / 2);
                 me->SetReactState(REACT_PASSIVE);
                 me->LoadCreaturesAddon(true);
                 _instance->SendEncounterUnit(ENCOUNTER_FRAME_REMOVE, me);
@@ -356,7 +358,7 @@ class boss_valithria_dreamwalker : public CreatureScript
 
             void DamageTaken(Unit* /*attacker*/, uint32& damage)
             {
-                if (me->HealthBelowPctDamaged(25, damage))
+                if (me->HealthBelowPct(26))
                 {
                     if (!_under25PercentTalkDone)
                     {
